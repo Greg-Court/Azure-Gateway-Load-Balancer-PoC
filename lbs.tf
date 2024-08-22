@@ -15,7 +15,7 @@ resource "azurerm_lb" "vnet1_lb" {
   sku                 = "Standard"
 
   frontend_ip_configuration {
-    name                 = "vnet1-lb-frontend"
+    name                 = "VNET1VMLBFrontend"
     public_ip_address_id = azurerm_public_ip.vnet1_lb_ip.id
     gateway_load_balancer_frontend_ip_configuration_id = azurerm_lb.gwlb.frontend_ip_configuration[0].id
   }
@@ -29,7 +29,7 @@ resource "azurerm_lb_nat_rule" "nat" {
   frontend_port_start            = 6969
   frontend_port_end              = 6969
   backend_port                   = 3389
-  frontend_ip_configuration_name = "vnet1-lb-frontend"
+  frontend_ip_configuration_name = "VNET1VMLBFrontend"
   backend_address_pool_id       = azurerm_lb_backend_address_pool.vnet1_lb_pool.id
 }
 
@@ -46,7 +46,7 @@ resource "azurerm_lb_rule" "vnet1_lb_rule" {
   protocol                       = "Tcp"
   frontend_port                  = 80
   backend_port                   = 80
-  frontend_ip_configuration_name = "VNET1VMFrontend"
+  frontend_ip_configuration_name = "VNET1LBFrontend"
   backend_address_pool_ids        = [azurerm_lb_backend_address_pool.vnet1_lb_pool.id]
   probe_id                       = azurerm_lb_probe.vnet1_lb_probe.id
 }
