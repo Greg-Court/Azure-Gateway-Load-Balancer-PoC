@@ -103,7 +103,7 @@ resource "azurerm_virtual_machine_extension" "nva_setup1" {
 
   settings = <<SETTINGS
     {
-      "script": "${filebase64("script.sh")}"
+      "script": "${filebase64("nva_setup.sh")}"
     }
 SETTINGS
 }
@@ -117,7 +117,7 @@ resource "azurerm_virtual_machine_extension" "nva_setup2" {
 
   settings = <<SETTINGS
     {
-      "script": "${filebase64("script.sh")}"
+      "script": "${filebase64("nva_setup.sh")}"
     }
 SETTINGS
 }

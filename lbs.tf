@@ -42,19 +42,19 @@ resource "azurerm_lb_backend_address_pool" "vnet1_lb_pool" {
 # Load Balancer Rule for VNet 1 LB (port 80 for IIS)
 resource "azurerm_lb_rule" "vnet1_lb_rule" {
   loadbalancer_id                = azurerm_lb.vnet1_lb.id
-  name                           = "vnet1-lb-rule"
+  name                           = "VNet1VMLBRule"
   protocol                       = "Tcp"
   frontend_port                  = 80
   backend_port                   = 80
-  frontend_ip_configuration_name = "vnet1-lb-frontend"
-  backend_address_pool_ids        = [azurerm_lb_backend_address_pool.vnet1_lb_pool.id]  # Changed to list
+  frontend_ip_configuration_name = "VNET1VMFrontend"
+  backend_address_pool_ids        = [azurerm_lb_backend_address_pool.vnet1_lb_pool.id]
   probe_id                       = azurerm_lb_probe.vnet1_lb_probe.id
 }
 
 # Load Balancer Probe for VNet 1 LB
 resource "azurerm_lb_probe" "vnet1_lb_probe" {
   loadbalancer_id     = azurerm_lb.vnet1_lb.id
-  name                = "vnet1-lb-probe"
+  name                = "VNet1VMProbe"
   protocol            = "Tcp"
   port                = 80
   interval_in_seconds = 5
