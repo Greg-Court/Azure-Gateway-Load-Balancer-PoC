@@ -75,13 +75,13 @@ sudo systemctl --type service
 sudo systemctl start nvanetwork.service
 sudo systemctl daemon-reload
 
-Viewing information
-Make sure variables have been set
-ip a
-sysctl net.ipv4.ip_forward
-ifconfig vxlan800
-ifconfig vxlan801
-ip -d link show vxlan800
-ip -d link show vxlan801
-sudo tcpdump -i vxlan800
-sudo tcpdump -i vxlan801
+# Viewing information
+# Make sure variables have been set
+# ip a
+# sysctl net.ipv4.ip_forward
+# ifconfig vxlan800
+# ifconfig vxlan801
+# ip -d link show vxlan800
+# ip -d link show vxlan801
+# sudo tcpdump -i vxlan800
+# sudo tcpdump -i vxlan801
