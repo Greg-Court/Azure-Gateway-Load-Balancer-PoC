@@ -46,7 +46,7 @@ resource "azurerm_lb_rule" "vnet1_lb_rule" {
   protocol                       = "Tcp"
   frontend_port                  = 80
   backend_port                   = 80
-  frontend_ip_configuration_name = "VNET1LBFrontend"
+  frontend_ip_configuration_name = "VNET1VMLBFrontend"
   backend_address_pool_ids        = [azurerm_lb_backend_address_pool.vnet1_lb_pool.id]
   probe_id                       = azurerm_lb_probe.vnet1_lb_probe.id
 }
