@@ -22,7 +22,7 @@ resource "azurerm_windows_virtual_machine" "workload_vm1" {
 
   os_disk {
     caching              = "ReadWrite"
-    storage_account_type = "Standard_LRS"
+    storage_account_type = "StandardSSD_LRS"
   }
 
   source_image_reference {
@@ -67,7 +67,7 @@ resource "azurerm_windows_virtual_machine" "workload_vm2" {
 
   os_disk {
     caching              = "ReadWrite"
-    storage_account_type = "Standard_LRS"
+    storage_account_type = "StandardSSD_LRS"
   }
 
   source_image_reference {
